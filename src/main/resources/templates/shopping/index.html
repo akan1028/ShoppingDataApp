@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+<h1 th:text="${title}">title</h1>
+<h2 th:text="${delete}"></h2>
+<a th:href ="@{/shopping/form}">メモしに行く</a>
+<table border="1">
+	<tr>
+		<th>品名</th><th>個数</th><th>価格</th><th>購入場所</th><th>購入日</th><th>削除</th>
+	</tr>
+	<tr th:each="shopping : ${shoppingList}">
+		<td th:text="${shopping.name}">もの</td>
+		<td th:text="${shopping.count}+個">かず</td>
+		<td th:text="${shopping.price}+円">ねだん</td>
+		<td th:text="${shopping.location}">ばしょ</td>
+		<td th:text="${shopping.date}">いつ</td>
+		<td><form method="post" th:action="@{/shopping/delete}">
+		<input type="submit" value="削除する">
+		<input type="hidden"id="delete" name="delete" th:value="${shopping.id}">
+		</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

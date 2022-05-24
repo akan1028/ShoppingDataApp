@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">書き込んだ</title>
+</head>
+<body>
+<h1 th:text="${title}">書き込んだ</h1>
+<div th:object="${ShoppingForm}">
+<p th:text="*{name}"></p>
+<p th:text="*{count}つ"></p>
+<p th:text="*{price}円"></p>
+<p th:text="*{location}"></p>
+<form method="post" action="#" th:action="@{/shopping/form}">
+	<input type="hidden" name="name" th:value="*{name}">
+	<input type="hidden" name="count" th:value="*{count}">
+	<input type="hidden" name="price" th:value="*{price}">
+	<input type="hidden" name="location" th:value="*{location}">
+	<input type="submit" value="Go Back">
+</form>
+<form method="post" action="#" th:action="@{/shopping/form}">
+	<input type="hidden" name="name" th:value="*{name}">
+	<input type="hidden" name="count" th:value="*{count}">
+	<input type="hidden" name="price" th:value="*{price}">
+	<input type="hidden" name="location" th:value="*{location}">
+	<input type="submit" value="Go Back">
+</form>
+</div>
+</body>
+</html>

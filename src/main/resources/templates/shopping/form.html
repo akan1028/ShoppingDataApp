@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">title</title>
+</head>
+<body>
+<h1 th:text="${title}">title</h1>
+
+<a th:href ="@{/shopping}">メモを見に行く</a>
+<form method="post" action="#" th:action="@{/shopping/form}" th:object="${shoppingForm}">
+	<label for="name">品名</label>
+	<input id="name" name="name" type="text" th:value="*{name}"><br>
+	<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+	<label for="count">個数</label>
+	<input id="count" name="count" type="text" th:value="*{count}"><br>
+	<div th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></div>
+	<label for="price">価格</label>
+	<input id="price" name="price" type="text" th:value="*{price}"><br>
+	<div th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+	<label for="location">場所</label>
+	<input id="location" name="location" type="text" th:value="*{location}"><br>
+	<div th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+    <input type="submit" value="メモする">
+    
+</form>
+
+</body>
+</html>

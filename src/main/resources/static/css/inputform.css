@@ -1,0 +1,29 @@
+@charset "UTF-8";
+input{
+	outline: none;
+	border-right:  none;
+	border-left:  none;
+	border-top:  none;
+	
+	
+	
+}
+input:-webkit-autofill{
+box-shadow: 0 0 0px  1000px white inset;}
+
+form{
+	font-size: 40px;
+	}
+
+.btn:hover{
+font-size: 200px;
+
+color : rgba(153,153,153,0.8)
+}
+.btn{
+font-size: 200px;
+
+color : rgba(153,153,153,0.5)
+}
+.error{
+font-size: 20px;}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet"  href="/css/inputform.css">
+<title th:text="${title}">title</title>
+
+</head>
+<body>
+<div th:include="shopping/header :: header_fragment">
+</div>
+
+<form class="text-center" method="post" action="#" th:action="@{/shopping/form}" th:object="${shoppingForm}">
+	<label for="name" class="form-label, mb-1">品名</label>
+	<input id="name" name="name" type="text" th:value="*{name}"><br>
+	<div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+	<label for="count" class="form-label, mb-1">個数</label>
+	<input id="count" name="count" type="text" th:value="*{count}" ><br>
+	<div class="error" th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></div>
+	<label for="price" class="form-label, mb-1">価格</label>
+	<input id="price" name="price" type="text" th:value="*{price}"><br>
+	<div class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+	<label for="location" class="form-label, mb-1">場所</label>
+	<input id="location" name="location" type="text" th:value="*{location}"><br>
+	<div class="error" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+    <input class="btn" type="submit" value="Write It" >
+    
+</form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
